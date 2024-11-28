@@ -33,6 +33,11 @@ app.use(limiter);
 app.set("etag", WEB_CACHE);
 
 // MongoDB Connection
+mongoose.connect(MONGODB_CONNECTION, {autoIndex: true}).then(() =>{
+    console.log("MongoDB Connected");
+}).catch(() =>{
+    console.log("MongoDB not connected");
+})
 
 // API Routes
 app.use("/api", router);
